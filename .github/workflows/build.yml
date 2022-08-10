@@ -1,9 +1,6 @@
 name: Upload builds to release
 
-on:
-  workflow_dispatch: 
-  release: 
-    types: [released]
+on: [push]
 
 jobs:
   build-evaltools:
