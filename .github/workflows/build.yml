@@ -15,7 +15,6 @@ jobs:
       - name: Build EvalTools
         run: |
           nimble install -y arraymancer argParse suru
-	  mkdir bin
           nim c --gc:orc -d:release fast_process.nim 
       - name: Upload release binaries
         uses: alexellis/upload-assets@0.2.2
