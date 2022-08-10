@@ -15,10 +15,11 @@ jobs:
       - name: Build EvalTools
         run: |
           nimble install -y arraymancer argParse suru
-          nim c --gc:orc -d:release fast_process.nim 
+          mkdir bin/
+          nim c --gc:orc -d:release -o:bin/fast_process fast_process.nim 
       - name: Upload release binaries
         uses: alexellis/upload-assets@0.2.2
         env:
           GITHUB_TOKEN: ${{ github.token }}
         with:
-          asset_paths: '["fast*"]'
+          asset_paths: '["bin/*"]'
